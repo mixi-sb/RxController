@@ -40,12 +40,7 @@ class AppFlow: Flow {
             navigationController.pushViewController(menuViewController, animated: false)
             return .viewController(menuViewController)
         case .child:
-            guard let menuViewController = navigationController.topViewController as? MenuViewController else {
-                return .none
-            }
-            let infoViewController = InfoViewController(viewModel: InfoViewModel())
-            menuViewController.present(infoViewController, animated: true)
-            return .viewController(infoViewController)
+            return present(InfoViewController(viewModel: InfoViewModel()))
         case .childIsComplete:
             guard
                 let menuViewController = navigationController.topViewController as? MenuViewController,

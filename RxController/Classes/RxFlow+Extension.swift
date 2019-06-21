@@ -53,3 +53,64 @@ extension FlowContributor {
     
 }
 
+extension Flow {
+    
+    public typealias PresentComponents = (flow: Flow, contributors: FlowContributors)
+    
+    public func present(_ presentVC: UIViewController, animated: Bool = true, completion: (() -> Void)? = nil) -> FlowContributors {
+        let components = createPresentComponents(presentVC)
+        Flows.whenReady(flow1: components.flow) { [weak self] _ in
+            self?.rootViewController?.present(presentVC, animated: animated, completion: completion)
+        }
+        return components.contributors
+    }
+    
+    public func createPresentComponents(_ presentVC: UIViewController) -> PresentComponents {
+        let presentFlow = PresentFlow(presentVC, with: presentVC.rootRxViewModel)
+        let contributors: FlowContributors = .flow(presentFlow, with: PresentStep.start)
+        return (presentFlow, contributors)
+    }
+}
+
+extension Presentable {
+    
+    var rootViewController: UIViewController? {
+        switch self {
+        case let viewController as UIViewController:
+            return viewController
+        case let window as UIWindow:
+            return window.rootViewController
+        case let flow as Flow:
+            return flow.root.rootViewController
+        default:
+            return nil
+        }
+    }
+    
+}
+
+// MARK: - Private
+private enum PresentStep: Step {
+    case start
+}
+
+private class PresentFlow: Flow {
+    private(set) var root: Presentable
+    private let stepper: Stepper?
+    
+    func navigate(to step: Step) -> FlowContributors {
+        guard step as? PresentStep != nil else {
+            return .one(flowContributor: .forwardToParentFlow(withStep: step))
+        }
+        if let stepper = stepper {
+            return .one(flowContributor: .contribute(withNextPresentable: root, withNextStepper: stepper))
+        } else {
+            return .none
+        }
+    }
+    
+    init(_ aRoot: Presentable, with aStepper: Stepper? = nil) {
+        root = aRoot
+        stepper = aStepper
+    }
+}
