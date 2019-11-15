@@ -51,13 +51,7 @@ class InfoViewController: RxViewController<InfoViewModel> {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        
-        view.addSubview(nameLabel)
-        view.addSubview(numberLabel)
-        view.addSubview(updateButton)
-        view.addSubview(numberContainerView)
-        view.addSubview(closeButton)
-        
+
         addChild(nameViewController)
         addChild(numberViewController, to: numberContainerView)
         
@@ -66,8 +60,16 @@ class InfoViewController: RxViewController<InfoViewModel> {
         viewModel.name ~> nameLabel.rx.text ~ disposeBag
         viewModel.number ~> numberLabel.rx.text ~ disposeBag
     }
+
+    override func addSubviews() {
+        view.addSubview(nameLabel)
+        view.addSubview(numberLabel)
+        view.addSubview(updateButton)
+        view.addSubview(numberContainerView)
+        view.addSubview(closeButton)
+    }
     
-    private func createConstraints() {
+    override func createConstraints() {
         nameLabel.snp.makeConstraints {
             $0.left.equalToSuperview().offset(10)
             $0.top.equalToSuperview().offset(100)

@@ -50,17 +50,9 @@ class NameViewController: RxViewController<NameViewModel> {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        
-        view.addSubview(titleLabel)
-        view.addSubview(nameLabel)
-        view.addSubview(numberLabel)
-        view.addSubview(updateButton)
-        view.addSubview(lastNameContainerView)
 
         addChild(firstNameViewController)
         addChild(lastNameViewController, to: lastNameContainerView)
-        
-        createConstraints()
         
         viewModel.name ~> nameLabel.rx.text ~ disposeBag
         viewModel.number ~> numberLabel.rx.text ~ disposeBag
@@ -71,8 +63,16 @@ class NameViewController: RxViewController<NameViewModel> {
         
         viewModel.updateName()
     }
+
+    override func addSubviews() {
+        view.addSubview(titleLabel)
+        view.addSubview(nameLabel)
+        view.addSubview(numberLabel)
+        view.addSubview(updateButton)
+        view.addSubview(lastNameContainerView)
+    }
     
-    private func createConstraints() {
+    override func createConstraints() {
         
         titleLabel.snp.makeConstraints {
             $0.left.equalToSuperview().offset(10)

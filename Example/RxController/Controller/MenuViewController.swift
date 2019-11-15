@@ -26,16 +26,17 @@ class MenuViewController: RxViewController<MenuViewModel> {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        view.addSubview(tableView)
-        createConstraints()
-        
+
         disposeBag ~ [
             viewModel.selectionSection ~> tableView.rx.items(dataSource: dataSource)
         ]
     }
-    
-    private func createConstraints() {
+
+    override func addSubviews() {
+        view.addSubview(tableView)
+    }
+
+    override func createConstraints() {
         tableView.snp.makeConstraints {
             $0.left.right.bottom.equalToSuperview()
             $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)

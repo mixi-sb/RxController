@@ -53,7 +53,23 @@ open class RxViewController<ViewModel: RxViewModel>: UIViewController, RxViewCon
     deinit {
         Log.debug("[DEINIT View Controller] \(type(of: self))")
     }
-    
+
+
+    open override func viewDidLoad() {
+        super.viewDidLoad()
+
+        addSubviews()
+        createConstraints()
+    }
+
+    open func addSubviews() {
+        fatalError("addSubviews() must be overrided.")
+    }
+
+    open func createConstraints() {
+        fatalError("createConstraints() must be overrided.")
+    }
+
     /**
      Add a child view controller to the root view of the parent view controller.
 

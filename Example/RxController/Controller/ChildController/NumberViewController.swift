@@ -43,12 +43,7 @@ class NumberViewController: RxViewController<NumberViewModel> {
         super.viewDidLoad()
         
         view.backgroundColor = .white
-        view.addSubview(titleLabel)
-        view.addSubview(nameLabel)
-        view.addSubview(numberLabel)
-        view.addSubview(updateButton)
-        createConstraints()
-        
+
         viewModel.name ~> nameLabel.rx.text ~ disposeBag
         viewModel.number ~> numberLabel.rx.text ~ disposeBag
     }
@@ -58,30 +53,37 @@ class NumberViewController: RxViewController<NumberViewModel> {
         
         viewModel.updateNumber()
     }
+
+    override func addSubviews() {
+        view.addSubview(titleLabel)
+        view.addSubview(nameLabel)
+        view.addSubview(numberLabel)
+        view.addSubview(updateButton)
+    }
     
-    private func createConstraints() {
-        
+    override func createConstraints() {
+
         titleLabel.snp.makeConstraints {
             $0.left.equalToSuperview().offset(10)
             $0.top.equalToSuperview()
         }
-        
+
         nameLabel.snp.makeConstraints {
             $0.left.equalTo(titleLabel)
             $0.top.equalTo(titleLabel.snp.bottom).offset(10)
         }
-        
+
         numberLabel.snp.makeConstraints {
             $0.centerY.equalTo(nameLabel)
             $0.right.equalToSuperview().offset(-10)
         }
-        
+
         updateButton.snp.makeConstraints {
             $0.right.equalTo(numberLabel)
             $0.top.equalTo(numberLabel.snp.bottom).offset(10)
             $0.width.equalTo(150)
         }
-        
+
     }
     
 }

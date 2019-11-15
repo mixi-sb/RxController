@@ -41,20 +41,21 @@ class LastNameViewController: RxViewController<LastNameViewModel> {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        
-        view.addSubview(titleLabel)
-        view.addSubview(firstNameLabel)
-        view.addSubview(lastNameLabel)
-        view.addSubview(updateButton)
-        createConstraints()
-        
+
         disposeBag ~ [
             viewModel.firstName ~> firstNameLabel.rx.text,
             viewModel.lastName ~> lastNameLabel.rx.text
         ]
     }
-    
-    private func createConstraints() {
+
+    override func addSubviews() {
+        view.addSubview(titleLabel)
+        view.addSubview(firstNameLabel)
+        view.addSubview(lastNameLabel)
+        view.addSubview(updateButton)
+    }
+
+    override func createConstraints() {
         
         titleLabel.snp.makeConstraints {
             $0.left.equalToSuperview().offset(30)
