@@ -39,6 +39,7 @@ open class RxViewModel: NSObject, Stepper {
         super.init()
         
         events.subscribe(onNext: { [unowned self] in
+            guard $0.cacheable else { return }
             guard $0.identifier.id != RxControllerEvent.steps.id else { return }
             let cachedEventIds = self.cachedEvents.map { $0.identifier.id }
             if let index = cachedEventIds.firstIndex(of: $0.identifier.id) {
