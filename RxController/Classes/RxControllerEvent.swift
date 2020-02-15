@@ -31,27 +31,30 @@ public struct RxControllerEvent {
     
     public struct Identifier {
         var id: String
+        var cacheable: Bool
         
-        static let none = Identifier(id: "none")
+        static let none = Identifier(id: "none", cacheable: false)
         
         public func event(_ value: Any?) -> RxControllerEvent {
-            return RxControllerEvent(identifier: self, value: value)
+            return RxControllerEvent(identifier: self, value: value, cacheable: cacheable)
         }
     }
     
     var identifier: Identifier
     var value: Any?
+    var cacheable: Bool
     
-    init(identifier: Identifier, value: Any?) {
+    init(identifier: Identifier, value: Any?, cacheable: Bool) {
         self.identifier = identifier
         self.value = value
+        self.cacheable = cacheable
     }
 
-    static let none = RxControllerEvent(identifier: .none, value: nil)
-    static let steps = RxControllerEvent.identifier()
+    static let none = RxControllerEvent(identifier: .none, value: nil, cacheable: false)
+    static let steps = RxControllerEvent.identifier(cacheable: false)
     
-    public static func identifier() -> Identifier {
-        return Identifier(id: UUID().uuidString)
+    public static func identifier(cacheable: Bool = true) -> Identifier {
+        return Identifier(id: UUID().uuidString, cacheable: cacheable)
     }
     
 }
