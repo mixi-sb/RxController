@@ -29,15 +29,15 @@ import UIKit
 extension FlowContributors {
     
     public static func viewController<ViewModel: RxViewModel>(_ viewController: RxViewController<ViewModel>) -> FlowContributors {
-        return .one(flowContributor: .viewController(viewController))
+        .one(flowContributor: .viewController(viewController))
     }
     
     public static func viewController(_ viewController: UIViewController, with viewModel: Stepper) -> FlowContributors {
-        return .one(flowContributor: .viewController(viewController, with: viewModel))
+        .one(flowContributor: .viewController(viewController, with: viewModel))
     }
     
     public static func flow(_ flow: Flow, with step: Step) -> FlowContributors {
-        return .one(flowContributor: .flow(flow, with: step))
+        .one(flowContributor: .flow(flow, with: step))
     }
     
 }
@@ -45,15 +45,15 @@ extension FlowContributors {
 extension FlowContributor {
     
     public static func viewController<ViewModel: RxViewModel>(_ viewController: RxViewController<ViewModel>) -> FlowContributor {
-        return .contribute(withNextPresentable: viewController, withNextStepper: viewController.viewModel)
+        .contribute(withNextPresentable: viewController, withNextStepper: viewController.viewModel)
     }
     
     public static func viewController(_ viewController: UIViewController, with viewModel: Stepper) -> FlowContributor {
-        return .contribute(withNextPresentable: viewController, withNextStepper: viewModel)
+        .contribute(withNextPresentable: viewController, withNextStepper: viewModel)
     }
     
     public static func flow(_ flow: Flow, with step: Step) -> FlowContributor {
-        return .contribute(withNextPresentable: flow, withNextStepper: OneStepper(withSingleStep: step))
+        .contribute(withNextPresentable: flow, withNextStepper: OneStepper(withSingleStep: step))
     }
     
 }
