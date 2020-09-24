@@ -93,4 +93,9 @@ open class RxViewController<ViewModel: RxViewModel>: UIViewController, RxViewCon
         viewModel.addChild(childController.rxViewModel)
     }
     
+    open func addChildViewModel(from childController: UIViewController) {
+        guard let childController = childController as? RxViewControllerProtocol else { return }
+        viewModel.addChild(childController.rxViewModel)
+    }
+    
 }
