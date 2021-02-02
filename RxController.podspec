@@ -26,7 +26,7 @@ These classes make it easy to transfer data among the flows, the parent view mod
   s.homepage         = 'https://github.com/xflagstudio/RxController'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = 'xflag'
-  s.source           = { :git => 'https://github.com/xflagstudio/RxController.git', :tag => s.version.to_s }
+  s.source           = { :git => 'git@github.com:xflagstudio/RxController.git', :tag => s.version.to_s }
 
   s.ios.deployment_target = '11.0'
   s.swift_versions = '5.2'
