@@ -22,10 +22,11 @@ class NameViewModel: BaseViewModel {
     private let faker = Faker(locale: "nb-NO")
     
     private let nameRelay = BehaviorRelay<String?>(value: nil)
-    
+    private let numberRelay = BehaviorRelay<String?>(value: nil)
     
     override func prepareForParentEvents() {
         bindParentEvents(to: nameRelay, with: InfoEvent.name)
+        bindParentEvents(to: numberRelay, with: InfoEvent.number)
     }
 
     var name: Observable<String?> {
@@ -39,7 +40,7 @@ class NameViewModel: BaseViewModel {
     }
     
     var number: Observable<String?> {
-        return parentEvents.value(of: InfoEvent.number)
+        numberRelay.asObservable()
     }
     
     func updateName() {

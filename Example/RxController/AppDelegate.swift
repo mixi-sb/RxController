@@ -16,7 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     private let coordinator = FlowCoordinator()
     private let disposeBag = DisposeBag()
-    private let window = UIWindow()
+
+    lazy var window: UIWindow? = UIWindow()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         coordinator.rx.didNavigate.subscribe(onNext: {
@@ -30,6 +31,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func coordinate(to: (UIWindow) -> (Flow, Step)) {
+        guard let window = window else { return }
+
         let (flow, step) = to(window)
         coordinator.coordinate(flow: flow, with: OneStepper(withSingleStep: step))
         window.makeKeyAndVisible()
