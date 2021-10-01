@@ -12,7 +12,7 @@ PODS:
   - RxCocoa (6.2.0):
     - RxRelay (= 6.2.0)
     - RxSwift (= 6.2.0)
-  - RxController (1.0.0):
+  - RxController (1.1.0):
     - RxCocoa (~> 6)
     - RxFlow (~> 2.12.0)
     - RxSwift (~> 6)
@@ -64,7 +64,7 @@ SPEC CHECKSUMS:
   Reusable: 6bae6a5e8aa793c9c441db0213c863a64bce9136
   RxBinding: e3c76d02d0ee3f1a306a0fb8e8ef6f2eda65a375
   RxCocoa: 4baf94bb35f2c0ab31bc0cb9f1900155f646ba42
-  RxController: 2590220770cc46f7918a399b46468fd06574c06c
+  RxController: e3b8e30891d56ee1e1751f056f0b3654a00e8a28
   RxDataSources: aa47cc1ed6c500fa0dfecac5c979b723542d79cf
   RxDataSourcesSingleSection: e646e523ad92109293b22e745b55dcb38bea7a58
   RxFlow: 03a73c83fb8f183107074b40ab2544c668583f73
