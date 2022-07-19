@@ -40,5 +40,14 @@ Carthage/Build
 
 # Swift Package Manager
 .build
-Package.resolved
+/.previous-build
+*~
+\#*
+.\#*
+.*.sw[nop]
+*.xcscmblueprint
+/default.profraw
+Utilities/Docker/*.tar.gz
 .swiftpm
+Package.resolved
+*.pyc

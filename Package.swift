@@ -11,11 +11,17 @@ let package = Package(
         .library(name: "RxController", targets: ["RxController"])
     ],
     dependencies: [
-        .package(url: "https://github.com/ReactiveX/RxSwift.git", .upToNextMajor(from: "5.0.0")),
-        .package(url: "https://github.com/RxSwiftCommunity/RxFlow.git", .upToNextMajor(from: "2.5.0"))
+        .package(url: "https://github.com/ReactiveX/RxSwift.git", .upToNextMajor(from: "6.0.0")),
+        .package(url: "https://github.com/RxSwiftCommunity/RxFlow.git", .upToNextMajor(from: "2.12.0"))
     ],
     targets: [
-        .target(name: "RxController", dependencies: ["RxSwift", "RxCocoa", "RxFlow"], path: "RxController")
+        .target(name: "RxController",
+                dependencies: [
+                    "RxSwift",
+                    .product(name: "RxCocoa", package: "RxSwift"),
+                    "RxFlow"
+                ]
+               )
     ],
     swiftLanguageVersions: [.v5]
 )

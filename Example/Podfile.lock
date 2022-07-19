@@ -9,10 +9,10 @@ PODS:
   - RxBinding (0.5):
     - RxCocoa (~> 6)
     - RxSwift (~> 6)
-  - RxCocoa (6.2.0):
-    - RxRelay (= 6.2.0)
-    - RxSwift (= 6.2.0)
-  - RxController (1.1.0):
+  - RxCocoa (6.5.0):
+    - RxRelay (= 6.5.0)
+    - RxSwift (= 6.5.0)
+  - RxController (1.2.0):
     - RxCocoa (~> 6)
     - RxFlow (~> 2.12.0)
     - RxSwift (~> 6)
@@ -28,10 +28,10 @@ PODS:
   - RxFlow (2.12.4):
     - RxCocoa (>= 6.0.0)
     - RxSwift (>= 6.0.0)
-  - RxRelay (6.2.0):
-    - RxSwift (= 6.2.0)
-  - RxSwift (6.2.0)
-  - SnapKit (5.0.1)
+  - RxRelay (6.5.0):
+    - RxSwift (= 6.5.0)
+  - RxSwift (6.5.0)
+  - SnapKit (5.6.0)
 
 DEPENDENCIES:
   - Fakery
@@ -63,15 +63,15 @@ SPEC CHECKSUMS:
   Fakery: a90caff00ca5cacde6c161c3eafc72314a03d34d
   Reusable: 6bae6a5e8aa793c9c441db0213c863a64bce9136
   RxBinding: e3c76d02d0ee3f1a306a0fb8e8ef6f2eda65a375
-  RxCocoa: 4baf94bb35f2c0ab31bc0cb9f1900155f646ba42
-  RxController: e3b8e30891d56ee1e1751f056f0b3654a00e8a28
+  RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
+  RxController: fd0582e618d05f506ea583143c0ccb35a4e4cc57
   RxDataSources: aa47cc1ed6c500fa0dfecac5c979b723542d79cf
   RxDataSourcesSingleSection: e646e523ad92109293b22e745b55dcb38bea7a58
   RxFlow: 03a73c83fb8f183107074b40ab2544c668583f73
-  RxRelay: e72dbfd157807478401ef1982e1c61c945c94b2f
-  RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
-  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
+  RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
+  SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
 
 PODFILE CHECKSUM: ba6283578e076eb1e1d926dfc1c2610458f4d335
 
-COCOAPODS: 1.11.2
+COCOAPODS: 1.11.3
