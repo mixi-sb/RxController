@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'RxController'
-  s.version          = '1.2.0'
+  s.version          = '1.3.0'
   s.summary          = 'A library for developing with MVVM-C based on RxFlow and RxSwift.'
 
 # This description is used to generate tags and improve search results.
@@ -23,12 +23,12 @@ RxController provides the basic view controller and view model classes.
 These classes make it easy to transfer data among the flows, the parent view models and the child view models.
                        DESC
 
-  s.homepage         = 'https://github.com/xflagstudio/RxController'
+  s.homepage         = 'https://github.com/mixi-sb/RxController'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = 'xflag'
-  s.source           = { :git => 'git@github.com:xflagstudio/RxController.git', :tag => s.version.to_s }
+  s.author           = 'MIXI'
+  s.source           = { :git => 'git@github.com:mixi-sb/RxController.git', :tag => s.version.to_s }
 
-  s.ios.deployment_target = '11.0'
+  s.ios.deployment_target = '15.0'
   s.swift_versions = '5.2'
   s.source_files = 'Sources/RxController/Classes/**/*'
   s.preserve_paths = 'rxtree/**/*'
