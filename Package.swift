@@ -5,7 +5,7 @@ import PackageDescription
 let package = Package(
     name: "RxController",
     platforms: [
-        .iOS(.v9)
+        .iOS(.v15)
     ],
     products: [
         .library(name: "RxController", targets: ["RxController"])
