@@ -9,7 +9,6 @@
 import RxCocoa
 import RxDataSourcesSingleSection
 import RxSwift
-import Fakery
 
 class FriendsViewModel: BaseViewModel {
     
@@ -19,8 +18,7 @@ class FriendsViewModel: BaseViewModel {
     init(name: String) {
         super.init()
         nameRealy.accept(name)
-        let faker = Faker(locale: "nb-NO")
-        firindsRelay.accept((0...Int.random(in: 5...10)).map { _ in faker.name.name() })
+        firindsRelay.accept((0...Int.random(in: 5...10)).map { "name_\($0)" })
     }
     
     var title: Observable<String> {

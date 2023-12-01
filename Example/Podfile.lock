@@ -1,6 +1,5 @@
 PODS:
   - Differentiator (5.0.0)
-  - Fakery (5.1.0)
   - Reusable (4.1.2):
     - Reusable/Storyboard (= 4.1.2)
     - Reusable/View (= 4.1.2)
@@ -34,7 +33,6 @@ PODS:
   - SnapKit (5.6.0)
 
 DEPENDENCIES:
-  - Fakery
   - RxBinding
   - RxController (from `../`)
   - RxDataSourcesSingleSection
@@ -43,7 +41,6 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Differentiator
-    - Fakery
     - Reusable
     - RxBinding
     - RxCocoa
@@ -60,7 +57,6 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Differentiator: e8497ceab83c1b10ca233716d547b9af21b9344d
-  Fakery: a90caff00ca5cacde6c161c3eafc72314a03d34d
   Reusable: 6bae6a5e8aa793c9c441db0213c863a64bce9136
   RxBinding: e3c76d02d0ee3f1a306a0fb8e8ef6f2eda65a375
   RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
@@ -72,6 +68,6 @@ SPEC CHECKSUMS:
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
 
-PODFILE CHECKSUM: 321602a9ebeff26df3e59174bb0e8124f1f2db6d
+PODFILE CHECKSUM: 9c97653486589f729e591b94ee1012012b0deb8c
 
 COCOAPODS: 1.14.3

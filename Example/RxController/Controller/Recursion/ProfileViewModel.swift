@@ -6,7 +6,6 @@
 //  Copyright © 2019 CocoaPods. All rights reserved.
 //
 
-import Fakery
 import RxCocoa
 import RxSwift
 
@@ -16,7 +15,7 @@ class ProfileViewModel: BaseViewModel {
     
     init(name: String? = nil) {
         super.init()
-        nameRelay.accept(name ?? Faker(locale: "nb-NO").name.name())
+        nameRelay.accept(name ?? "name")
     }
     
     var name: Observable<String?> {

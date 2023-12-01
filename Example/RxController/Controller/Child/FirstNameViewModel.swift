@@ -6,13 +6,10 @@
 //  Copyright © 2019 CocoaPods. All rights reserved.
 //
 
-import Fakery
 import RxCocoa
 import RxSwift
 
 class FirstNameViewModel: BaseViewModel {
-    
-    private let faker = Faker(locale: "nb-NO")
     
     private let firstNameRelay = BehaviorRelay<String?>(value: nil)
     private let lastNameRelay = BehaviorRelay<String?>(value: nil)
@@ -31,7 +28,7 @@ class FirstNameViewModel: BaseViewModel {
     }
 
     func updateFirstName() {
-        parentEvents.accept(NameEvent.firstName.event(faker.name.lastName()))
+        parentEvents.accept(NameEvent.firstName.event("first_name"))
     }
     
 }

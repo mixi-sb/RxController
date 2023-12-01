@@ -6,13 +6,10 @@
 //  Copyright © 2019 XFLAG. All rights reserved.
 //
 
-import Fakery
 import RxCocoa
 import RxSwift
 
 class NumberViewModel: BaseViewModel {
-    
-    private let faker = Faker(locale: "nb-NO")
     
     private let numberRelay = BehaviorRelay<String?>(value: nil)
     
@@ -25,7 +22,7 @@ class NumberViewModel: BaseViewModel {
     }
     
     func updateNumber() {
-        parentEvents.accept(InfoEvent.number.event(faker.phoneNumber.cellPhone()))
+        parentEvents.accept(InfoEvent.number.event("phoneNumber"))
     }
     
 }

@@ -6,7 +6,6 @@
 //  Copyright © 2019 XFLAG. All rights reserved.
 //
 
-import Fakery
 import RxCocoa
 import RxController
 import RxSwift
@@ -18,8 +17,6 @@ struct NameEvent {
 }
 
 class NameViewModel: BaseViewModel {
-    
-    private let faker = Faker(locale: "nb-NO")
     
     private let nameRelay = BehaviorRelay<String?>(value: nil)
     private let numberRelay = BehaviorRelay<String?>(value: nil)
@@ -44,8 +41,8 @@ class NameViewModel: BaseViewModel {
     }
     
     func updateName() {
-        let firstName = faker.name.firstName()
-        let lastName = faker.name.lastName()
+        let firstName = "firstName"
+        let lastName = "lastName"
         parentEvents.accept(InfoEvent.name.event(firstName + " " + lastName))
         events.accept(NameEvent.firstName.event(firstName))
         events.accept(NameEvent.lastName.event(lastName))
