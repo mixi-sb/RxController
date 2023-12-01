@@ -6,7 +6,6 @@ target 'RxController_Example' do
   pod 'RxDataSourcesSingleSection'
   pod 'RxBinding'
   pod 'SnapKit'
-  pod 'Fakery'
 
   target 'RxController_Tests' do
     inherit! :search_paths    
